@@ -10,7 +10,7 @@ Bu proje, IELTS Academic Reading ve Writing sınavlarına hazırlanan, akademik 
 | Metrik | Değer |
 | :--- | :--- |
 | **Toplam Makale Sayısı** | **1.000 Özgün Makale** |
-| **Toplam Hedef Kelime** | **5,787+ Bağlamsal Kelime Kullanımı** |
+| **Toplam Hedef Kelime** | **5,857+ Bağlamsal Kelime Kullanımı** |
 | **Seviye Dağılımı** | B1 (250), B2 (300), C1 (300), C2 (150) |
 | **Tematik Kategori Sayısı** | **36 Ana Kategori** |
 | **Tek Markdown Dosyası** | [`IELTS_1000_Articles_B1_C2.md`](./IELTS_1000_Articles_B1_C2.md) |

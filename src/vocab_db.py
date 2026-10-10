@@ -87,6 +87,19 @@ VOCAB_DB = {
     "invoice": {"tr": "fatura", "pos": "isim", "level": "B1"},
 }
 
+def infer_pos(word, tr):
+    tr_clean = tr.strip().lower()
+    if tr_clean.endswith("mek") or tr_clean.endswith("mak"):
+        return "fiil"
+    w_clean = word.strip().lower()
+    if w_clean.endswith("ly"):
+        return "zarf"
+    if any(w_clean.endswith(sfx) for sfx in ["al", "ic", "ous", "ive", "able", "ible", "ant", "ent", "ful", "less"]):
+        return "sıfat"
+    if any(w_clean.endswith(sfx) for sfx in ["tion", "sion", "ment", "ity", "ism", "ance", "ence", "or", "er", "ness", "gy", "phy", "my"]):
+        return "isim"
+    return "isim"
+
 def lookup_vocab(word, tr_fallback=""):
     """Returns a dictionary with word, tr meaning, pos, and cefr level."""
     clean_word = word.strip().lower()
@@ -98,9 +111,11 @@ def lookup_vocab(word, tr_fallback=""):
             "pos": info["pos"],
             "level": info.get("level", "B1")
         }
+    
+    pos = infer_pos(word, tr_fallback)
     return {
         "word": word.strip(),
-        "tr": tr_fallback.strip() or "kelime",
-        "pos": "kelime",
-        "level": "Genel"
+        "tr": tr_fallback.strip() or "kavram",
+        "pos": pos,
+        "level": "Akademik"
     }
